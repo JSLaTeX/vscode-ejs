@@ -3,7 +3,7 @@
 	"type": "module",
 	"displayName": "EJS/ETS language support",
 	"description": "EJS/ETS language support for Visual Studio Code.",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"license": "MIT",
 	"icon": "assets/icon.png",
 	"publisher": "leonzalion",
