@@ -1,7 +1,7 @@
 # EJS/ETS Language Support
 
 <p align='center'>
-  <img src="assets/icon.svg" width="100" />
+  <img src="assets/icon.svg" width="150" />
 </p>
 
 [![Visual&nbsp;Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/leonzalion.vscode-ejs.svg?label=Visual%20Studio%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=leonzalion.vscode-ejs)
