@@ -121,9 +121,9 @@ export function getGrammar(
 	};
 
 	const patterns = [
-		{ include: `${languageName}-tag-block-comment` },
-		{ include: `${languageName}-tag` },
-		{ include: `${languageName}-single-line-tag` },
+		{ include: `#${languageName}-tag-block-comment` },
+		{ include: `#${languageName}-tag` },
+		{ include: `#${languageName}-single-line-tag` },
 	];
 
 	return { repository, patterns };
