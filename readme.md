@@ -1,6 +1,8 @@
-[![Visual&nbsp;Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/leonzalion.vscode-ejs.svg?label=Visual%20Studio%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=leonzalion.vscode-ejs)
-
 # EJS/ETS Language Support
+
+![ETS Icon](assets/icon.svg)
+
+[![Visual&nbsp;Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/leonzalion.vscode-ejs.svg?label=Visual%20Studio%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=leonzalion.vscode-ejs)
 
 Syntax highlighting for EJS, ETS, Javascript, and HTML tags. The EJS/ETS tags are highlighted with a different colour to stand out.
 

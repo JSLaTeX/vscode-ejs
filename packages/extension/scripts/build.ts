@@ -2,7 +2,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import chalk from 'chalk';
 import sharp from 'sharp';
-import { chProjectDir, rmDist } from 'lion-system';
+import { chProjectDir, getProjectDir, rmDist } from 'lion-system';
 import languageConfiguration from '../syntaxes/language-configuration.js';
 import tmLanguage from '../syntaxes/ets.tmLanguage.js';
 
@@ -24,7 +24,11 @@ fs.writeFileSync(
 console.info(chalk.greenBright('Syntax built.'));
 
 fs.mkdirSync('dist/assets', { recursive: true });
+
+const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
 // Convert .svg icon to .png
-await sharp('assets/icon.svg').png().toFile(path.join('dist/assets/icon.png'));
+await sharp(path.join(monorepoDir, 'assets/icon.svg'))
+	.png()
+	.toFile(path.join('dist/assets/icon.png'));
 
 console.info(chalk.greenBright('Image converted.'));
