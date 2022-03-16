@@ -4,7 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"build": "node-ts ./scripts/build.ts"
+		"build": "node-ts ./scripts/build.ts",
+		"lint": "eslint --fix --cache .",
+		"prettier": "prettier --write .",
+		"tc": "tsc --noEmit"
 	},
 	"license": "MIT",
 	"dependencies": {

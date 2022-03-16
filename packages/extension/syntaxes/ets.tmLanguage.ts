@@ -1,16 +1,16 @@
-import { outdent } from "outdent";
-import escapeStringRegexp from "escape-string-regexp";
+import { outdent } from 'outdent';
+import escapeStringRegexp from 'escape-string-regexp';
 
 // https://stackoverflow.com/a/34755045
 function r(regexString: string) {
 	return regexString
-		.split("\n")
+		.split('\n')
 		.map((line) => line.trim())
-		.filter((line) => line !== "") // don't include empty lines
-		.join("");
+		.filter((line) => line !== '') // don't include empty lines
+		.join('');
 }
 
-const tagDelimeters = ["%", "?"];
+const tagDelimeters = ['%', '?'];
 
 function getRepository() {
 	const etsBeginTag = (delimiter: string) =>
@@ -20,23 +20,23 @@ function getRepository() {
 
 	return {
 		// Comments that use the ETS <?# tag
-		"tag-block-comment": {
-			name: "comment.block.ets",
-			contentName: "comment.block.ts",
-			begin: "<(\\?)#",
+		'tag-block-comment': {
+			name: 'comment.block.ets',
+			contentName: 'comment.block.ts',
+			begin: '<(\\?)#',
 			beginCaptures: {
-				"0": {
-					name: "punctuation.definition.comment.ts",
+				'0': {
+					name: 'punctuation.definition.comment.ts',
 				},
 			},
 			end: String.raw`\1>`,
 			endCaptures: {
-				"0": {
-					name: "punctuation.definition.comment.ts",
+				'0': {
+					name: 'punctuation.definition.comment.ts',
 				},
 			},
 		},
-		"tag-ets": {
+		'tag-ets': {
 			patterns: tagDelimeters.map((char) => ({
 				begin: r(
 					outdent.string(String.raw`
@@ -49,12 +49,12 @@ function getRepository() {
 					`)
 				),
 				beginCaptures: {
-					"1": {
-						name: "punctuation.section.embedded.begin",
+					'1': {
+						name: 'punctuation.section.embedded.begin',
 					},
-					"2": {
-						name: "meta.embedded.ets",
-						patterns: [{ include: "source.ts" }],
+					'2': {
+						name: 'meta.embedded.ets',
+						patterns: [{ include: 'source.ts' }],
 					},
 				},
 				end: r(
@@ -68,27 +68,27 @@ function getRepository() {
 					`)
 				),
 				endCaptures: {
-					"1": {
-						name: "meta.embedded.ets",
-						patterns: [{ include: "source.ts" }],
+					'1': {
+						name: 'meta.embedded.ets',
+						patterns: [{ include: 'source.ts' }],
 					},
-					"2": {
-						name: "punctuation.section.embedded.end",
+					'2': {
+						name: 'punctuation.section.embedded.end',
 					},
 				},
 				// Matched against the part between the begin and end matches
 				patterns: [
 					{
-						contentName: "meta.embedded.ts",
+						contentName: 'meta.embedded.ts',
 						begin: String.raw`(?:^|\G).*`,
 						// the `.*` is needed so that we can have TS before the end tag
 						while: String.raw`(?:^|\G)((?!.*${etsEndTag(char)}))`,
-						patterns: [{ include: "source.ts" }],
+						patterns: [{ include: 'source.ts' }],
 					},
 				],
 			})),
 		},
-		"single-line-tag-ets": {
+		'single-line-tag-ets': {
 			patterns: tagDelimeters.map((char) => ({
 				begin: r(
 					outdent.string(String.raw`
@@ -102,18 +102,18 @@ function getRepository() {
 					`)
 				),
 				beginCaptures: {
-					"1": {
-						name: "punctuation.section.embedded.begin",
+					'1': {
+						name: 'punctuation.section.embedded.begin',
 					},
-					"2": {
-						name: "meta.embedded.ets",
-						patterns: [{ include: "source.ts" }],
+					'2': {
+						name: 'meta.embedded.ets',
+						patterns: [{ include: 'source.ts' }],
 					},
 				},
 				end: etsEndTag(char),
 				endCaptures: {
-					"0": {
-						name: "punctuation.section.embedded.end",
+					'0': {
+						name: 'punctuation.section.embedded.end',
 					},
 				},
 			})),
@@ -123,13 +123,13 @@ function getRepository() {
 
 export default function getConfigString() {
 	const config = {
-		name: "Embedded JavaScript",
-		scopeName: "text.html.ets",
-		injectionSelector: "L:text.html",
+		name: 'Embedded JavaScript',
+		scopeName: 'text.html.ets',
+		injectionSelector: 'L:text.html',
 		patterns: [
-			{ include: "#tag-block-comment" },
-			{ include: "#single-line-tag-ets" },
-			{ include: "#tag-ets" },
+			{ include: '#tag-block-comment' },
+			{ include: '#single-line-tag-ets' },
+			{ include: '#tag-ets' },
 		],
 		repository: getRepository(),
 	};

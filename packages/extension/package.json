@@ -12,7 +12,11 @@
 		"vscode": "^1.62.0"
 	},
 	"scripts": {
-		"build": "node-ts ./scripts/build.ts"
+		"build": "node-ts ./scripts/build.ts",
+		"release": "node-ts ./scripts/release.ts",
+		"lint": "eslint --fix --cache .",
+		"prettier": "prettier --write .",
+		"tc": "tsc --noEmit"
 	},
 	"categories": [
 		"Programming Languages"
@@ -77,10 +81,14 @@
 	},
 	"homepage": "https://github.com/leonzalion/vscode-ejs#readme",
 	"devDependencies": {
+		"@types/inquirer": "^8.2.0",
 		"@types/sharp": "^0.30.0",
 		"chalk": "^5.0.1",
 		"desm": "^1.2.0",
+		"dot-prop": "^7.2.0",
 		"escape-string-regexp": "^5.0.0",
+		"inquirer": "^8.2.1",
+		"inquirer-press-to-continue": "^1.0.8",
 		"outdent": "^0.8.0",
 		"sharp": "^0.30.3"
 	}
