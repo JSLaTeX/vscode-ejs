@@ -50,7 +50,7 @@
 		"grammars": [
 			{
 				"scopeName": "text.html.ejs",
-				"path": "./dist/syntaxes/ets.tmLanguage.json",
+				"path": "./dist/syntaxes/ejs.tmLanguage.json",
 				"injectTo": [
 					"text.html"
 				],

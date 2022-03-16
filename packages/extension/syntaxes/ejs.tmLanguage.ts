@@ -8,11 +8,14 @@ export default function getConfigString() {
 		scopeName: 'text.html.ejs',
 		injectionSelector: 'L:text.html',
 		patterns: [
-			{ include: '#tag-block-comment' },
-			{ include: '#single-line-tag-ets' },
-			{ include: '#tag-ets' },
+			{ include: '#ejs-tag-block-comment' },
+			{ include: '#ejs-single-line-tag' },
+			{ include: '#ejs-tag' },
 		],
-		repository: vscodeEjs.getRepository(tagDelimeters),
+		repository: vscodeEjs.getRepository(tagDelimeters, {
+			languageName: 'ejs',
+			sourceLanguageName: 'js',
+		}),
 	};
 
 	return JSON.stringify(config);

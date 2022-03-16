@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import sharp from 'sharp';
 import { chProjectDir, getProjectDir, rmDist } from 'lion-system';
 import languageConfiguration from '../syntaxes/language-configuration.js';
-import tmLanguage from '../syntaxes/ets.tmLanguage.js';
+import tmLanguage from '../syntaxes/ejs.tmLanguage.js';
 
 chProjectDir(import.meta.url);
 
@@ -15,7 +15,7 @@ fs.mkdirSync('dist', { recursive: true });
 const syntaxDistDir = 'dist/syntaxes';
 fs.mkdirSync(syntaxDistDir, { recursive: true });
 
-fs.writeFileSync(path.join(syntaxDistDir, 'ets.tmLanguage.json'), tmLanguage());
+fs.writeFileSync(path.join(syntaxDistDir, 'ejs.tmLanguage.json'), tmLanguage());
 fs.writeFileSync(
 	path.join(syntaxDistDir, 'language-configuration.json'),
 	languageConfiguration()
