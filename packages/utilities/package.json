@@ -1,9 +1,11 @@
 {
 	"name": "vscode-ejs",
+	"type": "module",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"exports": "./index.js",
 	"scripts": {
+		"release": "lionp",
 		"build": "node-ts ./scripts/build.ts",
 		"lint": "eslint --fix --cache .",
 		"prettier": "prettier --write .",
@@ -13,5 +15,11 @@
 	"dependencies": {
 		"escape-string-regexp": "^5.0.0",
 		"outdent": "^0.8.0"
+	},
+	"devDependencies": {
+		"lionp": "^1.0.23"
+	},
+	"publishConfig": {
+		"directory": "dist"
 	}
 }
