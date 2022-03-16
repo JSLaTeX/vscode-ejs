@@ -1,0 +1,14 @@
+{
+	"name": "vscode-ejs",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "node-ts ./scripts/build.ts"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"escape-string-regexp": "^5.0.0",
+		"outdent": "^0.8.0"
+	}
+}

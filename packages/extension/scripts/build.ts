@@ -3,8 +3,8 @@ import * as path from "node:path";
 import chalk from "chalk";
 import sharp from "sharp";
 import { chProjectDir, rmDist } from "lion-system";
-import languageConfiguration from "../syntaxes/language-configuration.js";
-import tmLanguage from "../syntaxes/ets.tmLanguage.js";
+import languageConfiguration from "../syntaxes/language-configuration.js
+import tmLanguage from "../syntaxes/ets.tmLanguage.js
 
 chProjectDir(import.meta.url);
 

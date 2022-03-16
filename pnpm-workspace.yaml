@@ -1,0 +1,3 @@
+packages:
+  - packages/extension
+  - packages/utilities

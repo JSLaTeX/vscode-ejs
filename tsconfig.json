@@ -1,6 +1,3 @@
 {
-	"extends": "@leonzalion/configs/tsconfig.json",
-	"compilerOptions": {
-		"outDir": "./dist"
-	}
+	"extends": "@leonzalion/configs/tsconfig.json"
 }

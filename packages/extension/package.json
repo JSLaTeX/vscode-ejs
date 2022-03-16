@@ -1,0 +1,87 @@
+{
+	"name": "vscode-ejs-monorepo",
+	"type": "module",
+	"displayName": "EJS/ETS language support",
+	"description": "EJS/ETS language support for Visual Studio Code.",
+	"version": "1.3.1",
+	"license": "MIT",
+	"icons": "/dist/assets/icon.png",
+	"publisher": "leonzalion",
+	"author": "Leon Si <contact@leonzalion.com>",
+	"engines": {
+		"vscode": "^1.62.0"
+	},
+	"scripts": {
+		"build": "node-ts ./scripts/build.ts"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"keywords": [
+		"EJS",
+		"ETS",
+		"embedded javascript",
+		"javascript",
+		"embedded typescript",
+		"typescript",
+		"syntax highlighting"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "ets",
+				"icon": {
+					"light": "./dist/assets/icon.png",
+					"dark": "./dist/assets/icon.png"
+				},
+				"aliases": [
+					"ETS"
+				],
+				"extensions": [
+					".ets"
+				],
+				"configuration": "./dist/syntaxes/language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"scopeName": "text.html.ets",
+				"path": "./dist/syntaxes/ets.tmLanguage.json",
+				"injectTo": [
+					"text.html"
+				],
+				"embeddedLanguages": {
+					"meta.embedded.block.ets": "ets",
+					"meta.embedded.block.typescript": "source.ts"
+				}
+			},
+			{
+				"scopeName": "text.html.ejs",
+				"path": "./dist/syntaxes/ets.tmLanguage.json",
+				"injectTo": [
+					"text.html"
+				],
+				"embeddedLanguages": {
+					"meta.embedded.block.ejs": "ejs",
+					"meta.embedded.block.typescript": "source.ts"
+				}
+			}
+		]
+	},
+	"bugs": {
+		"url": "https://github.com/leonzalion/vscode-ejs/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/leonzalion/vscode-ejs"
+	},
+	"homepage": "https://github.com/leonzalion/vscode-ejs#readme",
+	"devDependencies": {
+		"@types/sharp": "^0.30.0",
+		"chalk": "^5.0.1",
+		"desm": "^1.2.0",
+		"escape-string-regexp": "^5.0.0",
+		"outdent": "^0.8.0",
+		"sharp": "^0.30.3"
+	}
+}
