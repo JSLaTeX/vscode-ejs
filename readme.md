@@ -1,6 +1,6 @@
 # EJS/ETS Language Support
 
-<p style="display: flex; justify-content: center">
+<p align='center'>
   <img src="assets/icon.svg" width="100" />
 </p>
 
