@@ -2,7 +2,9 @@
 
 # EJS/ETS Language Support
 
-Syntax highlighting for EJS, ETS, Javascript, and HTML tags. The EJS/ETS tags are highlighted with a different colour to stand out.
+Syntax highlighting for EJS, ETS, Javascript, and HTML tags. The EJS/ETS tags are highlighted with a different colour to stand out:
+
+![Syntax Highlighting Example](assets/syntax-highlighting-example.png)
 
 This extension was heavily inspired by [Digitalbrainstem's ejs-grammar extension](https://github.com/Digitalbrainstem/ejs-grammar). I learned a ton about TextMate Grammar from his repository!
 
