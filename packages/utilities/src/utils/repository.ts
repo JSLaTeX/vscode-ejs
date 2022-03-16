@@ -2,40 +2,48 @@ import { outdent } from 'outdent';
 import escapeStringRegexp from 'escape-string-regexp';
 import { r } from './regex.js';
 
-export function getRepository(tagDelimiters: string[]) {
-	const ejsBeginTag = (delimiter: string) =>
+type GetRepositoryOptions = {
+	languageName: string;
+	sourceLanguageName: string;
+};
+
+export function getRepository(
+	tagDelimiters: string[],
+	{ languageName, sourceLanguageName }: GetRepositoryOptions
+) {
+	const beginTag = (delimiter: string) =>
 		`<${escapeStringRegexp(delimiter)}[_=-]?`;
-	const ejsEndTag = (delimiter: string) =>
+	const endTag = (delimiter: string) =>
 		`[_-]?${escapeStringRegexp(delimiter)}>`;
 
 	return {
-		// Comments that use the EJS <?# tag
-		'tag-block-comment': {
+		// Comments that use the EJS/ETS <?# tag
+		[`${languageName}-tag-block-comment`]: {
 			patterns: tagDelimiters.map((char) => ({
-				name: 'comment.block.ejs',
-				contentName: 'comment.block.js',
+				name: `comment.block.${languageName}`,
+				contentName: `comment.block.${sourceLanguageName}`,
 				begin: `<(${escapeStringRegexp(char)})#`,
 				beginCaptures: {
 					'0': {
-						name: 'punctuation.definition.comment.js',
+						name: `punctuation.definition.comment.${sourceLanguageName}`,
 					},
 				},
 				end: String.raw`\1>`,
 				endCaptures: {
 					'0': {
-						name: 'punctuation.definition.comment.js',
+						name: `punctuation.definition.comment.${sourceLanguageName}`,
 					},
 				},
 			})),
 		},
-		'tag-ejs': {
+		[`${languageName}-tag`]: {
 			patterns: tagDelimiters.map((char) => ({
 				begin: r(
 					outdent.string(String.raw`
-						(${ejsBeginTag(char)})
+						(${beginTag(char)})
 						(
 							(?:
-								(?!${ejsEndTag(char)}).
+								(?!${endTag(char)}).
 							)*
 						)
 					`)
@@ -45,24 +53,24 @@ export function getRepository(tagDelimiters: string[]) {
 						name: 'punctuation.section.embedded.begin',
 					},
 					'2': {
-						name: 'meta.embedded.ejs',
-						patterns: [{ include: 'source.js' }],
+						name: `meta.embedded.${languageName}`,
+						patterns: [{ include: `source.${sourceLanguageName}` }],
 					},
 				},
 				end: r(
 					outdent.string(String.raw`
 						(
 							(?:
-								(?!${ejsEndTag(char)}).
+								(?!${endTag(char)}).
 							)*
 						)
-						(${ejsEndTag(char)})
+						(${endTag(char)})
 					`)
 				),
 				endCaptures: {
 					'1': {
-						name: 'meta.embedded.ejs',
-						patterns: [{ include: 'source.js' }],
+						name: `meta.embedded.${languageName}`,
+						patterns: [{ include: `source.${sourceLanguageName}` }],
 					},
 					'2': {
 						name: 'punctuation.section.embedded.end',
@@ -71,26 +79,26 @@ export function getRepository(tagDelimiters: string[]) {
 				// Matched against the part between the begin and end matches
 				patterns: [
 					{
-						contentName: 'meta.embedded.js',
+						contentName: `meta.embedded.${languageName}`,
 						begin: String.raw`(?:^|\G).*`,
 						// the `.*` is needed so that we can have JS before the end tag
-						while: String.raw`(?:^|\G)((?!.*${ejsEndTag(char)}))`,
-						patterns: [{ include: 'source.js' }],
+						while: String.raw`(?:^|\G)((?!.*${endTag(char)}))`,
+						patterns: [{ include: `source.${sourceLanguageName}` }],
 					},
 				],
 			})),
 		},
-		'single-line-tag-ejs': {
+		[`${languageName}-single-line-tag`]: {
 			patterns: tagDelimiters.map((char) => ({
 				begin: r(
 					outdent.string(String.raw`
-						(${ejsBeginTag(char)})
+						(${beginTag(char)})
 						(
 							(?:
-								(?!${ejsEndTag(char)}).
+								(?!${endTag(char)}).
 							)+
 						)
-						(?=${ejsEndTag(char)})
+						(?=${endTag(char)})
 					`)
 				),
 				beginCaptures: {
@@ -98,11 +106,11 @@ export function getRepository(tagDelimiters: string[]) {
 						name: 'punctuation.section.embedded.begin',
 					},
 					'2': {
-						name: 'meta.embedded.ejs',
-						patterns: [{ include: 'source.js' }],
+						name: `meta.embedded.${languageName}`,
+						patterns: [{ include: `source.${sourceLanguageName}` }],
 					},
 				},
-				end: ejsEndTag(char),
+				end: endTag(char),
 				endCaptures: {
 					'0': {
 						name: 'punctuation.section.embedded.end',
@@ -110,5 +118,5 @@ export function getRepository(tagDelimiters: string[]) {
 				},
 			})),
 		},
-	} as const;
+	};
 }

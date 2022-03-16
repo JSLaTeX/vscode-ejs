@@ -5,7 +5,7 @@ const tagDelimeters = ['%', '?'];
 export default function getConfigString() {
 	const config = {
 		name: 'Embedded JavaScript',
-		scopeName: 'text.html.ets',
+		scopeName: 'text.html.ejs',
 		injectionSelector: 'L:text.html',
 		patterns: [
 			{ include: '#tag-block-comment' },

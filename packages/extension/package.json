@@ -5,7 +5,7 @@
 	"description": "EJS/ETS language support for Visual Studio Code.",
 	"version": "1.0.0",
 	"license": "MIT",
-	"icons": "/dist/assets/icon.png",
+	"icons": "./dist/assets/icon.png",
 	"publisher": "leonzalion",
 	"author": "Leon Si <contact@leonzalion.com>",
 	"engines": {
@@ -48,17 +48,6 @@
 			}
 		],
 		"grammars": [
-			{
-				"scopeName": "text.html.ets",
-				"path": "./dist/syntaxes/ets.tmLanguage.json",
-				"injectTo": [
-					"text.html"
-				],
-				"embeddedLanguages": {
-					"meta.embedded.block.ets": "ets",
-					"meta.embedded.block.typescript": "source.ts"
-				}
-			},
 			{
 				"scopeName": "text.html.ejs",
 				"path": "./dist/syntaxes/ets.tmLanguage.json",
