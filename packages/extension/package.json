@@ -91,6 +91,7 @@
 		"inquirer-press-to-continue": "^1.0.8",
 		"outdent": "^0.8.0",
 		"sharp": "^0.30.3",
+		"vsce": "^2.7.0",
 		"vscode-ejs": "file:../utilities/dist"
 	}
 }
