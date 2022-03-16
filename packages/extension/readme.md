@@ -4,7 +4,7 @@
 
 Syntax highlighting for EJS, ETS, Javascript, and HTML tags. The EJS/ETS tags are highlighted with a different colour to stand out:
 
-![Syntax Highlighting Example](assets/syntax-highlighting-example.png)
+![Syntax Highlighting Example](https://raw.githubusercontent.com/leonzalion/vscode-ejs/main/packages/extension/assets/syntax-highlighting-example.png)
 
 This extension was heavily inspired by [Digitalbrainstem's ejs-grammar extension](https://github.com/Digitalbrainstem/ejs-grammar). I learned a ton about TextMate Grammar from his repository!
 
