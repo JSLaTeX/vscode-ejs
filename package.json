@@ -27,6 +27,22 @@
 		"syntax highlighting"
 	],
 	"contributes": {
+		"languages": [
+			{
+				"id": "ets",
+				"icon": {
+					"light": "./dist/assets/icon.png",
+					"dark": "./dist/assets/icon.png"
+				},
+				"aliases": [
+					"ETS"
+				],
+				"extensions": [
+					".ets"
+				],
+				"configuration": "./dist/syntaxes/language-configuration.json"
+			}
+		],
 		"grammars": [
 			{
 				"scopeName": "text.html.ets",
@@ -38,12 +54,6 @@
 					"meta.embedded.block.ets": "ets",
 					"meta.embedded.block.typescript": "source.ts"
 				}
-			}
-		],
-		"snippets": [
-			{
-				"language": "html",
-				"path": "./snippets/snippets.json"
 			}
 		]
 	},
