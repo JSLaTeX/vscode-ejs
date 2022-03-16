@@ -7,7 +7,7 @@ type GetRepositoryOptions = {
 	sourceLanguageName: string;
 };
 
-export function getRepository(
+export function getGrammar(
 	tagDelimiters: string[],
 	{ languageName, sourceLanguageName }: GetRepositoryOptions
 ) {
@@ -16,7 +16,7 @@ export function getRepository(
 	const endTag = (delimiter: string) =>
 		`[_-]?${escapeStringRegexp(delimiter)}>`;
 
-	return {
+	const repository = {
 		// Comments that use the EJS/ETS <?# tag
 		[`${languageName}-tag-block-comment`]: {
 			patterns: tagDelimiters.map((char) => ({
@@ -119,4 +119,12 @@ export function getRepository(
 			})),
 		},
 	};
+
+	const patterns = [
+		{ include: `${languageName}-tag-block-comment` },
+		{ include: `${languageName}-tag` },
+		{ include: `${languageName}-single-line-tag` },
+	];
+
+	return { repository, patterns };
 }

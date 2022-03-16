@@ -1,1 +1,1 @@
-export { getRepository } from './utils/repository.js';
+export { getGrammar } from './utils/grammar.js';
