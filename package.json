@@ -1,7 +1,7 @@
 {
 	"name": "vscode-ejs-monorepo",
 	"version": "0.0.0",
-	"description": "EJS/ETS support for VSCode.",
+	"description": "EJS support for VSCode.",
 	"license": "MIT",
 	"repository": {
 		"type": "git",

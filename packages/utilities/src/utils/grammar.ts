@@ -17,7 +17,7 @@ export function getGrammar(
 		`[_-]?${escapeStringRegexp(delimiter)}>`;
 
 	const repository = {
-		// Comments that use the EJS/ETS <?# tag
+		// Comments that use the EJS <?# tag
 		[`${languageName}-tag-block-comment`]: {
 			patterns: tagDelimiters.map((char) => ({
 				name: `comment.block.${languageName}`,

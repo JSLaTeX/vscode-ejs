@@ -1,8 +1,8 @@
 {
 	"name": "vscode-ejs",
 	"type": "module",
-	"displayName": "EJS/ETS language support",
-	"description": "EJS/ETS language support for Visual Studio Code.",
+	"displayName": "EJS Language Support",
+	"description": "EJS syntax highlighting for Visual Studio Code.",
 	"version": "1.0.4",
 	"license": "MIT",
 	"icon": "assets/icon.png",
@@ -12,6 +12,7 @@
 		"vscode": "^1.62.0"
 	},
 	"scripts": {
+		"prepare": "cd ../utilities && pnpm build",
 		"build": "node-ts ./scripts/build.ts",
 		"release": "node-ts ./scripts/release.ts",
 		"lint": "eslint --fix --cache .",
@@ -23,7 +24,6 @@
 	],
 	"keywords": [
 		"EJS",
-		"ETS",
 		"embedded javascript",
 		"javascript",
 		"embedded typescript",
