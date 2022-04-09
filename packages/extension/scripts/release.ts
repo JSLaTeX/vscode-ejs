@@ -7,7 +7,7 @@ import {
 	copyPackageFiles,
 	getProjectDir,
 	rmDist,
-	rewriteDistPaths,
+	rewritePkgPaths,
 } from 'lion-system';
 import { setProperty } from 'dot-prop';
 import inquirer from 'inquirer';
@@ -33,8 +33,10 @@ const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8')) as Record<
 	unknown
 >;
 setProperty(pkg, 'type', 'commonjs');
-rewriteDistPaths(pkg);
-fs.writeFileSync('dist/package.json', JSON.stringify(pkg, null, '\t'));
+fs.writeFileSync(
+	'dist/package.json',
+	JSON.stringify(rewritePkgPaths(pkg), null, '\t')
+);
 
 process.chdir(distDir);
 
