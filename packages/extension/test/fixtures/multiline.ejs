@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			* { box-sizing: border-box }
+		</style>
+	</head>
+	<body>
+		Syntax highlighting works with <%= [..."multiline"].map((c) => {
+			return c.toUpperCase();
+		}).join('') %> embeds!
+
+		<%# TypeScript is also supported with https://npm.im/embedded-ts %>
+		<% for (let i: number = 0; i < 10; i += 1) { %>
+			<p><%= i %></p>
+		<% } %>
+	</body>
+</html>
