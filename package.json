@@ -16,6 +16,8 @@
 	"type": "module",
 	"scripts": {
 		"prepare": "lion-git-hooks",
+		"release:extension": "pnpm run release --filter=./packages/extension",
+		"release:utilities": "pnpm run release --filter=./packages/utilities",
 		"lint": "pnpm recursive run lint",
 		"prettier": "pnpm recursive run prettier",
 		"tc": "pnpm recursive run tc"
