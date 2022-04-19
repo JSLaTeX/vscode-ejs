@@ -8,6 +8,8 @@
 
 Syntax highlighting for EJS, Javascript, and HTML tags. The EJS tags are highlighted with a different colour to stand out.
 
+![Syntax Highlighting Example](https://raw.githubusercontent.com/leonzalion/vscode-ejs/main/packages/extension/assets/syntax-highlighting-example.png)
+
 This extension was heavily inspired by [Digitalbrainstem's ejs-grammar extension](https://github.com/Digitalbrainstem/ejs-grammar).
 
 If you encounter any bugs with this extension, please open an issue at <https://github.com/JSLaTeX/vscode-ejs/issues>!
