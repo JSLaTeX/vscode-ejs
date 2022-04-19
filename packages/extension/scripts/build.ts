@@ -1,10 +1,11 @@
+import chalk from 'chalk';
+import { chProjectDir, getProjectDir, rmDist } from 'lion-system';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import chalk from 'chalk';
 import sharp from 'sharp';
-import { chProjectDir, getProjectDir, rmDist } from 'lion-system';
-import languageConfiguration from '../syntaxes/language-configuration.js';
+
 import tmLanguage from '../syntaxes/ejs.tmLanguage.js';
+import languageConfiguration from '../syntaxes/language-configuration.js';
 
 chProjectDir(import.meta.url);
 

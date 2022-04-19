@@ -3,7 +3,7 @@
 	"type": "module",
 	"displayName": "EJS Language Support",
 	"description": "EJS syntax highlighting for Visual Studio Code.",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"license": "MIT",
 	"icon": "assets/icon.png",
 	"publisher": "leonzalion",
@@ -12,7 +12,6 @@
 		"vscode": "^1.62.0"
 	},
 	"scripts": {
-		"prepare": "cd ../utilities && pnpm build",
 		"build": "node-ts ./scripts/build.ts",
 		"release": "node-ts ./scripts/release.ts",
 		"lint": "eslint --fix --cache .",

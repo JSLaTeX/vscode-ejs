@@ -1,5 +1,6 @@
-import { outdent } from 'outdent';
 import escapeStringRegexp from 'escape-string-regexp';
+import { outdent } from 'outdent';
+
 import { r } from './regex.js';
 
 type GetRepositoryOptions = {

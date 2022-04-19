@@ -3,9 +3,10 @@
 	"type": "module",
 	"version": "0.0.6",
 	"description": "",
-	"exports": "./index.js",
+	"exports": "./src/index.ts",
 	"scripts": {
 		"release": "lionp",
+		"preinstall": "pnpm build",
 		"build": "node-ts ./scripts/build.ts",
 		"lint": "eslint --fix --cache .",
 		"prettier": "prettier --write .",
