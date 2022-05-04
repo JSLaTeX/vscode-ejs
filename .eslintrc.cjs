@@ -1,8 +1,8 @@
-const { defineConfig } = require('eslint-define-config');
+const createESLintConfig = require('@leonzalion/configs/eslint.cjs');
 
-module.exports = defineConfig({
-	extends: [require.resolve('@leonzalion/configs/eslint.cjs')],
+module.exports = createESLintConfig(__dirname, {
 	rules: {
-		'unicorn/filename-case': 'off',
-	},
+		'unicorn/filename-case': 'off';
+	}
 });
+
