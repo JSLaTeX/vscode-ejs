@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { chProjectDir, getProjectDir, rmDist } from 'lion-system';
+import { chProjectDir, getProjectDir, rmDist } from 'lionconfig';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import sharp from 'sharp';
